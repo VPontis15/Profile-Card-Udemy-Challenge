@@ -7,31 +7,26 @@ const skills = [
     name: "HTML",
     level: "advanced",
     color: "red",
-    emoji: "",
   },
   {
     name: "CSS",
     level: "advanced",
     color: "blue",
-    emoji: "",
   },
   {
     name: "Javascript",
     level: "intermidiate",
     color: "yellow",
-    emoji: "",
   },
   {
     name: "React",
     level: "beginner",
     color: "orangered",
-    emoji: "",
   },
   {
     name: "Git and Github",
     level: "intermidiate",
     color: "black",
-    emoji: "",
   },
   {
     name: "Figma",
@@ -43,7 +38,6 @@ const skills = [
     name: "Web Design",
     level: "intermidiate",
     color: "green",
-    emoji: "",
   },
 ];
 
@@ -92,10 +86,10 @@ function Skill({ skillObj }) {
       <p className="skill__name">{skillObj.name}</p>
       <span>
         {skillObj.level === "beginner"
-          ? (skillObj.emoji = "👶")
+          ? "👶"
           : skillObj.level === "intermidiate"
-          ? (skillObj.emoji = "👊")
-          : (skillObj.emoji = "💪")}
+          ? "👊"
+          : "💪"}
       </span>
     </div>
   );
