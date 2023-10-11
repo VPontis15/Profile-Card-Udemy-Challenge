@@ -2,6 +2,51 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+const skills = [
+  {
+    name: "HTML",
+    level: "advanced",
+    color: "red",
+    emoji: "",
+  },
+  {
+    name: "CSS",
+    level: "advanced",
+    color: "blue",
+    emoji: "",
+  },
+  {
+    name: "Javascript",
+    level: "intermidiate",
+    color: "yellow",
+    emoji: "",
+  },
+  {
+    name: "React",
+    level: "beginner",
+    color: "orangered",
+    emoji: "",
+  },
+  {
+    name: "Git and Github",
+    level: "intermidiate",
+    color: "black",
+    emoji: "",
+  },
+  {
+    name: "Figma",
+    level: "beginner",
+    color: "orange",
+    emoji: "",
+  },
+  {
+    name: "Web Design",
+    level: "intermidiate",
+    color: "green",
+    emoji: "",
+  },
+];
+
 function App() {
   return (
     <div className="card">
@@ -34,22 +79,24 @@ function Content() {
 function Skills() {
   return (
     <div className="skills">
-      <Skill emoji="💪" name="HTML" color="red" />
-      <Skill emoji="👌" name="CSS" color="blue" />
-      <Skill emoji="👍" name="Javascript" color="yellow" />
-      <Skill emoji="✌" name="React" color="orangered" />
-      <Skill emoji="💪" name="Git and Github" color="black" />
-      <Skill emoji="💯" name="Web Design" color="green" />
-      <Skill emoji="🎉" name="Figa" color="orange" />
+      {skills.map((skill) => {
+        return <Skill skillObj={skill} key={skill.name} />;
+      })}
     </div>
   );
 }
 
-function Skill(props) {
+function Skill({ skillObj }) {
   return (
-    <div style={{ backgroundColor: props.color }} className="skill">
-      <p className="skill__name">{props.name}</p>
-      <span>{props.emoji}</span>
+    <div style={{ backgroundColor: skillObj.color }} className="skill">
+      <p className="skill__name">{skillObj.name}</p>
+      <span>
+        {skillObj.level === "beginner"
+          ? (skillObj.emoji = "👶")
+          : skillObj.level === "intermidiate"
+          ? (skillObj.emoji = "👊")
+          : (skillObj.emoji = "💪")}
+      </span>
     </div>
   );
 }
